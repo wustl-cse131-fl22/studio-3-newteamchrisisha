@@ -12,7 +12,6 @@ public class Sieve {
 		System.out.println("Input a number: ");
 		int n = in.nextInt();
 		
-		
 		// checks if n is negative
 		if (n < 0)
 		{
@@ -22,58 +21,29 @@ public class Sieve {
 		
 		// filling array
 		int[] sieves = new int[n];
+		
 		for (int i = 0; i <= n - 1; i++)
 		{
-			sieves[i] = i + 1;
+			sieves[i] = i;
 		}
 		
-		// checks if divisible by 2
-		for (int j = 2; j <= n - 1; j++)
+		
+		for (int i = 2; i < n ; i++)
 		{
 			
-			if (sieves[j] % 2 == 0)
+			for (int j = 2; j <= n; j++)
 			{
-				sieves[j] = 0;
+				
+				if (sieves[i] % j == 0  && sieves[i] != j)
+				{
+					sieves[i] = 0;
+				}
+				
 			}
-			
-		}
-		
-		// checks if divisible by 3
-		for (int j = 3; j <= n - 1; j++)
-		{
-			
-			if (sieves[j] % 3 == 0)
-			{
-				sieves[j] = 0;
-			}
-			
-		}
-		
-		// checks if divisible by 5
-		for (int j = 5; j <= n - 1; j++)
-		{
-			
-			if (sieves[j] % 5 == 0)
-			{
-				sieves[j] = 0;
-			}
-			
-		}
-		
-		// checks if divisible by 7
-		for (int j = 7; j <= n - 1; j++)
-		{
-			
-			if (sieves[j] % 7 == 0)
-			{
-				sieves[j] = 0;
-			}
-			
 		}
 		
 		
-		
-		// Prints array
+		//Prints array
 		for (int j = 1; j <= n-1; j++)
 		{
 			if (sieves[j] != 0)
